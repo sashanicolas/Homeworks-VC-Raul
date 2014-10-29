@@ -25,7 +25,7 @@ RigImage=input('Enter the name of the image file - ','s');
 figure(1);
 subplot(1,1,1);
 imshow(RigImage);
-
+ 
 XMAX=input('Enter the number of esquares in each plane of the Calibration Rig - ');
 XMAX=XMAX-1;
 
