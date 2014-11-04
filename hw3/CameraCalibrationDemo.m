@@ -90,7 +90,7 @@ if captura==1,
 end
 
 %% Computes the Projection Matrix without Radial Distortion
-if Radial(1)~='y'
+if Radial(1)~='y' %sem distorcao radial
     
     Kappa=[0 0 0];
     %% Compute the Projection matrix and extracts parameters

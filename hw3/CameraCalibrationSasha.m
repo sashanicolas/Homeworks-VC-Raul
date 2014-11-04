@@ -1,5 +1,5 @@
-function [alfa,beta,theta,u0,v0,M,K,R,t,Kappa]=CameraCalibrationDemo
-% [alfa,beta,theta,u0,v0,M,K,R,t,Kappa]=CameraCalibrationDemo
+function [alfa,beta,theta,u0,v0,M,K,R,t,Kappa]=CameraCalibrationSasha
+% [alfa,beta,theta,u0,v0,M,K,R,t,Kappa]=CameraCalibrationSasha
 % This is an iteractive tool that allows the user to enter control points in an
 % image of a calibration rig, and returns the camera parameters. 
 %
@@ -16,6 +16,7 @@ function [alfa,beta,theta,u0,v0,M,K,R,t,Kappa]=CameraCalibrationDemo
 % Kappa  - 1x3 vector containing the coefficients of radial distortion
 %
 % Raul Queiroz Feitosa Junho/2009
+% Edit by Sasha Nicolas November/2014
 
 %%
 
@@ -89,12 +90,12 @@ if captura==1,
     disp ('Your points were saved in file "LastCollectedPoints.m"');
 end
 
-%% Computes the Projection Matrix without Radial Distortion
-if Radial(1)~='y'
+%% Computes the Affine Matrix without Radial Distortion
+if Radial(1)~='y' %sem distorcao radial
     
     Kappa=[0 0 0];
-    %% Compute the Projection matrix and extracts parameters
-    M=GoldStandardCameraCalibration(P,p);
+    %% Compute the Affine matrix and extracts parameters
+    M=GoldStandardCameraCalibration2(P,p);
     [K,R,t]=krt(M);
     M=K*[R t];
 
